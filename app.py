@@ -1,13 +1,13 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+import requests
 
-class HolaHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header("Content-type", "text/plain; charset=utf-8")
-        self.end_headers()
-        self.wfile.write(b"Hola Mundo")
+def llamar_app1():
+    url = "http://mi-servicio2.ecuaalejo2013-dev.svc.cluster.local:8080"
+    try:
+        response = requests.get(url)
+        print("Respuesta de app1:", response.text)
+    except Exception as e:
+        print("Error al llamar a app1:", e)
 
 if __name__ == "__main__":
-    server = HTTPServer(("", 8080), HolaHandler)
-    print("Servidor iniciado en el puerto 8080...")
-    server.serve_forever()
+    print("Llamando a app1...")
+    llamar_app1()
