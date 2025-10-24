@@ -1,13 +1,16 @@
-import requests
+# app_b.py
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
-def llamar_app1():
-    url = "http://mi-servicio2.ecuaalejo2013-dev.svc.cluster.local:8080"
-    try:
-        response = requests.get(url)
-        print("Respuesta de app1:", response.text)
-    except Exception as e:
-        print("Error al llamar a app1:", e)
+class HolaBHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        body = b"\xE2\x9C\x85 Hola desde app B (puerto 8080)"
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
 if __name__ == "__main__":
-    print("Llamando a app1...")
-    llamar_app1()
+    server = HTTPServer(("", 8080), HolaBHandler)
+    print("App B escuchando")
+    server.serve_forever()
