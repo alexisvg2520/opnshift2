@@ -1,5 +1,5 @@
 # Imagen base ligera de Python
-FROM alexisvg2520/holamundoopenshift:1
+FROM alexisvg2520/holamundoopenshift
 
 # Crear y entrar al directorio de la app
 WORKDIR /app
