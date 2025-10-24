@@ -79,7 +79,7 @@ data:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: mi-hpa
+  name: mi-hpa2
   namespace: ecuaalejo2013-dev
 spec:
   scaleTargetRef:
