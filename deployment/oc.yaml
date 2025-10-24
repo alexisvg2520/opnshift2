@@ -68,7 +68,7 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: mi-secret
+  name: mi-secret2
   namespace: ecuaalejo2013-dev
 
 type: Opaque
