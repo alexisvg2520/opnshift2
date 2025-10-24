@@ -17,7 +17,7 @@ spec:
         app: mi-app2
     spec:
       containers:
-        - name: contenedor-principal
+        - name: contenedor-principal2
           image: alexisvg2520/holamundoopenshift:build-{{ tag }}  # <-- Reemplaza con la imagen que quieras usar
           imagePullPolicy: Always
           ports:
