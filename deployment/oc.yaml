@@ -31,16 +31,16 @@ spec:
               memory: "1500Mi"
           envFrom:
             - configMapRef:
-                name: mi-configmap
+                name: mi-configmap2
             - secretRef:
-                name: mi-secret
+                name: mi-secret2
           volumeMounts:
             - name: datos
               mountPath: /app/data 
       volumes:
         - name: datos
           persistentVolumeClaim:
-            claimName: mi-pvc
+            claimName: mi-pvc2
 ---
 apiVersion: v1
 kind: Service
@@ -60,7 +60,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mi-configmap
+  name: mi-configmap2
   namespace: ecuaalejo2013-dev
 data:
   DATABASE: "192.168.1.1"
