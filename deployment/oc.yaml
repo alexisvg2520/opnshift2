@@ -99,7 +99,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mi-pvc
+  name: mi-pvc2
   namespace: ecuaalejo2013-dev
 spec:
   accessModes:
