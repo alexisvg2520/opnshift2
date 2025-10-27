@@ -22,6 +22,28 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /startup
+              port: 8080
+            failureThreshold: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 8080
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+            timeoutSeconds: 2
           resources:
             requests:
               cpu: "500m"
